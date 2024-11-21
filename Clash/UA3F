@@ -1,0 +1,2 @@
+proxies:
+  - {name: ua3f, server: 127.0.0.1, port: 10803, type: socks5, udp: false}
