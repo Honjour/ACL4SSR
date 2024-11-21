@@ -1,2 +1,21 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
 proxies:
   - {name: ua3f, server: 127.0.0.1, port: 10803, type: socks5, udp: false}
+proxy-groups:
+  - name: 直连
+    type: select
+    url: http://connectivitycheck.platform.hicloud.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - DIRECT
+      - ua3f
+rules:
+  - PROCESS-NAME,ua3f,DIRECT
+  - NETWORK,udp,DIRECT
+  - MATCH,ua3f
