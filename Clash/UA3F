@@ -9,13 +9,10 @@ proxies:
 proxy-groups:
   - name: 直连
     type: select
-    url: http://connectivitycheck.platform.hicloud.com/generate_204
-    interval: 300
-    tolerance: 50
     proxies:
       - DIRECT
       - ua3f
 rules:
   - PROCESS-NAME,ua3f,DIRECT
   - NETWORK,udp,DIRECT
-  - MATCH,ua3f
+  - MATCH,直连
