@@ -10,8 +10,8 @@ proxy-groups:
   - name: 直连
     type: select
     proxies:
-      - DIRECT
       - ua3f
+      - DIRECT
 rules:
   - PROCESS-NAME,ua3f,DIRECT
   - NETWORK,udp,DIRECT
